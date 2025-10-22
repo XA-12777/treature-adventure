@@ -61,7 +61,7 @@ import PanoramaView from './components/views/PanoramaView.vue'
 import GameView from './components/views/GameView.vue'
 import UserManagement from './components/views/UserManagement.vue'
 import RankingView from './components/views/RankingView.vue'
-import MusicControl from './components/ui/MusicControl.vue'
+import MusicControl from './components/UI/MusicControl.vue'
 
 export default {
   name: 'App',
@@ -341,4 +341,5 @@ export default {
     }
   }
 }
+
 </script>
