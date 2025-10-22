@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import LocationCard from '../ui/LocationCard.vue'
-import ProgressBar from '../ui/ProgressBar.vue'
-import KeyIndicator from '../ui/KeyIndicator.vue'
+import LocationCard from '../UI/LocationCard.vue'
+import ProgressBar from '../UI/ProgressBar.vue'
+import KeyIndicator from '../UI/KeyIndicator.vue'
 
 export default {
   name: 'PanoramaView',
@@ -98,4 +98,5 @@ export default {
   margin-top: 30px;
   backdrop-filter: blur(10px);
 }
+
 </style>
