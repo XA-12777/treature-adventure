@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import ProgressBar from '../ui/ProgressBar.vue'
-import KeyIndicator from '../ui/KeyIndicator.vue'
-import GameLog from '../ui/GameLog.vue'
+import ProgressBar from '../UI/ProgressBar.vue'
+import KeyIndicator from '../UI/KeyIndicator.vue'
+import GameLog from '../UI/GameLog.vue'
 
 export default {
   name: 'GameView',
@@ -71,4 +71,5 @@ export default {
     }
   }
 }
+
 </script>
