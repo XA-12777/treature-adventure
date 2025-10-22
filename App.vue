@@ -1,14 +1,5 @@
 <template>
   <div id="app">
-    <!-- 新增：音乐提示覆盖层 -->
-    <div v-if="showMusicPrompt" class="music-prompt" @click="closeMusicPrompt">
-      <div class="prompt-content">
-        <h3>🎵 点击开启背景音乐</h3>
-        <p>为了更好的游戏体验，建议开启背景音乐</p>
-        <button @click="closeMusicPrompt">开始游戏</button>
-      </div>
-    </div>
-
     <NavigationBar 
       :currentView="currentView"
       :currentUser="currentUser"
@@ -85,9 +76,6 @@ export default {
   setup() {
     const currentView = ref('panorama')
     const currentLocation = ref(null)
-    
-    // 新增：音乐提示状态
-    const showMusicPrompt = ref(true)
 
     // 使用组合式函数
     const {
@@ -101,12 +89,10 @@ export default {
       saveGameState
     } = useGameState()
 
-    // 修改：添加 resumePlay
     const {
       musicEnabled,
       toggleMusic,
-      playMusic,
-      resumePlay
+      playMusic
     } = useMusicManager()
 
     const {
@@ -129,21 +115,6 @@ export default {
       }
       return titles[currentLocation.value] || '🏴‍☠️ 神秘宝藏探险'
     })
-
-    // 新增：关闭音乐提示并恢复播放
-    const closeMusicPrompt = () => {
-      showMusicPrompt.value = false
-      // 用户交互后恢复音乐播放
-      resumePlay()
-      if (musicEnabled.value) {
-        playMusic('panorama')
-      }
-    }
-
-    // 修改：处理用户交互
-    const handleUserInteraction = () => {
-      resumePlay()
-    }
 
     // 方法
     const changeView = (view) => {
@@ -339,14 +310,12 @@ export default {
       return names[location] || '未知地点'
     }
 
-    // 修改 onMounted
     onMounted(() => {
-      // 添加全局点击事件监听
-      document.addEventListener('click', handleUserInteraction, { once: true })
-      
-      // 初始化音乐（可能被浏览器阻止）
+      // 初始化音乐
       if (musicEnabled.value) {
-        playMusic('panorama')
+        document.addEventListener('click', () => {
+          playMusic('panorama')
+        }, { once: true })
       }
     })
 
@@ -359,10 +328,6 @@ export default {
       musicEnabled,
       currentUser,
       rankings,
-      // 新增：返回音乐提示状态和方法
-      showMusicPrompt,
-      closeMusicPrompt,
-      // 原有的返回项保持不变
       locationTitle,
       changeView,
       enterLocation,
@@ -376,59 +341,5 @@ export default {
     }
   }
 }
+
 </script>
-
-<style scoped>
-/* 音乐提示样式 */
-.music-prompt {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10000;
-}
-
-.prompt-content {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  backdrop-filter: blur(10px);
-  border: 2px solid #ffd700;
-  max-width: 400px;
-  margin: 20px;
-}
-
-.prompt-content h3 {
-  color: #ffd700;
-  margin-bottom: 15px;
-  font-size: 1.5em;
-}
-
-.prompt-content p {
-  color: #ccc;
-  margin-bottom: 20px;
-  font-size: 1.1em;
-}
-
-.prompt-content button {
-  background: linear-gradient(45deg, #4ecdc4, #44a08d);
-  color: white;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1.1em;
-  transition: all 0.3s ease;
-}
-
-.prompt-content button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-</style>
