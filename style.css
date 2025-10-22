@@ -1,0 +1,128 @@
+/* 保持原有的CSS样式不变 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ... 其余CSS样式保持不变 ... */
+
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+
+     /* 保持原有的CSS样式不变，添加新样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    min-height: 100vh;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: #ffd700;
+}
+
+/* ... 其余原有CSS样式保持不变 ... */
+
+.view {
+    display: none;
+}
+
+.view.active {
+    display: block;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* 不同地点的背景图 */
+.map-container.library {
+    background: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800') center/cover;
+}
+
+.map-container.waterfall {
+    background: url('https://img.shetu66.com/2023/07/19/1689757162181600.png?w=800') center/cover;
+}
+
+.map-container.ancient-tree {
+    background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=800') center/cover;
+}
+
+.map-container.maze {
+    background: url('https://img95.699pic.com/photo/60005/9897.jpg_wh300.jpg!/fh/300/quality/90?w=800') center/cover;
+}
+
+.map-container.temple {
+    background: url('https://youimg1.c-ctrip.com/target/fd/tg/g3/M07/9F/2C/CggYGVZAZxSAKsGkAAsWz_a3FWM067.jpg?w=800') center/cover;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.bounce {
+    animation: bounce 0.5s ease infinite;
+}
+
+}
